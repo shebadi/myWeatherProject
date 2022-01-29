@@ -49,3 +49,13 @@ li {
   position: relative;
   top: -34px;
 }
+.footer {
+  color: #5871e0;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 10pt;
+}
+.source {
+  color: #5871e0;
+}
