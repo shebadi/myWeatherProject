@@ -21,35 +21,26 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
+      <div class="weather">
         <form id="search-form">
           <div class="row">
-            <div class="col-6">
+            <div class="col-8">
               <input
                 type="search"
-                placeholder="Type city name..."
-                class="form-control mb-2 mr-sm-2"
+                placeholder="Enter a city..."
+                class="form-control mb-2 mr-sm-2 search-input"
                 id="inlineFormInputName2"
                 autofocus="on"
                 autocomplete="off"
               />
             </div>
-            <div class="col-3">
+            <div class="col-4">
               <input
                 type="submit"
                 class="form-control btn btn-outline-light shadow-sm w-100"
                 value="Search"
                 id="search"
               />
-            </div>
-
-            <div class="col-3">
-              <button
-                class="btn btn-success shadow-sm w-100"
-                id="current-location-button"
-              >
-                Current
-              </button>
             </div>
           </div>
         </form>
@@ -122,16 +113,16 @@
             Thu -4° | 20°
           </div>
         </div>
+        <footer>
+          <a
+            class="source"
+            href="https://github.com/shebadi/myWeatherProject"
+            target="_blanck"
+            >Open Source Code
+          </a>
+          By Shabnam
+        </footer>
       </div>
-      <span class="footer">
-        <a
-          class="source"
-          href="https://github.com/shebadi/myWeatherProject"
-          target="_blanck"
-          >Open Source Code
-        </a>
-        By Shabnam</span
-      >
     </div>
 
     <script src="src/script.js"></script>
