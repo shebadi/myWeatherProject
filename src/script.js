@@ -75,19 +75,6 @@ function showWeather(response) {
   //  descriptionWeather.innerHTML = response.data.weather[0].description;
 }
 
-function searchLocation(position) {
-  let apiKey = "7a088f73941e6a828a29489663c7f3f7";
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&exclude=current&units=metric&appid=${apiKey}`;
-
-  axios.get(url).then(showWeather);
-}
-
-function getCurrentLocation(event) {
-  event.preventDefault();
-  navigator.geolocation.getCurrentPosition(searchLocation);
-}
 function searchByCity(event) {
   event.preventDefault();
   let cityName = document
@@ -110,7 +97,6 @@ function searchByCity(event) {
     alert("Please Enter city!");
   }
 }
-let currentBtn = document.querySelector("#current-location-button");
-currentBtn.addEventListener("click", getCurrentLocation);
+
 let searchBtn = document.querySelector("#search");
 searchBtn.addEventListener("click", searchByCity);
