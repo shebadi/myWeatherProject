@@ -67,6 +67,9 @@ a {
   line-height: 20px;
   list-style: none;
 }
+.weather li:first-letter {
+  text-transform: capitalize;
+}
 .weather .temperature {
   font-weight: bold;
   color: rgb(33, 33, 33);
