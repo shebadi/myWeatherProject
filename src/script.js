@@ -24,14 +24,14 @@ function formatDate(timeStamp) {
   return `${day} ${hours}:${minutes}`;
 }
 function showWeather(response) {
-  let city = document.querySelector("#city");
+  let cityElement = document.querySelector("#city");
   let descriptionWeather = document.querySelector("#description");
   let tempWeather = document.querySelector("#temperature");
   celsiusTemperature = Math.round(response.data.main.temp);
   let windWeather = document.querySelector("#wind");
   let humidityWeather = document.querySelector("#humidity");
   let dateElement = document.querySelector("#date");
-  city.innerHTML = response.data.name;
+  cityElement.innerHTML = response.data.name;
   tempWeather.innerHTML = celsiusTemperature;
   let roundWind = Math.round(response.data.wind.speed);
   windWeather.innerHTML = `${roundWind}km/hm`;
@@ -63,9 +63,6 @@ function searchByCity(event) {
   }
 }
 
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", searchByCity);
-
 function displayFarenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -83,6 +80,7 @@ function displaycelsiusTemperature(event) {
   let temperatureElement = document.querySelector("#temperature");
   temperatureElement.innerHTML = celsiusTemperature;
 }
+
 let celsiusTemperature = null;
 
 let farenheitLink = document.querySelector("#fahrenheit-link");
@@ -90,3 +88,10 @@ farenheitLink.addEventListener("click", displayFarenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displaycelsiusTemperature);
+
+let searchForm = document.querySelector("#search-form");
+searchForm.addEventListener("submit", searchByCity);
+
+let apiKey = "7a088f73941e6a828a29489663c7f3f7";
+let urlDefault = `https://api.openweathermap.org/data/2.5/weather?q=Tehran&exclude=current&units=metric&appid=${apiKey}`;
+axios.get(urlDefault).then(showWeather);
