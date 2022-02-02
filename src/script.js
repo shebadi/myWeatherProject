@@ -51,9 +51,8 @@ function searchByCity(event) {
   let cityName = document
     .querySelector("#inlineFormInputName2")
     .value.toLowerCase();
-  let apiKey = "7a088f73941e6a828a29489663c7f3f7";
   if (cityName.trim().length != "") {
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&exclude=current&units=metric&appid=${apiKey}`;
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${apiKey}`;
     axios.get(url).then(showWeather);
     axios.get(url).catch(function (error) {
       if (error.response) {
@@ -98,6 +97,6 @@ celsiusLink.addEventListener("click", displaycelsiusTemperature);
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchByCity);
 
-let apiKey = "7a088f73941e6a828a29489663c7f3f7";
-let urlDefault = `https://api.openweathermap.org/data/2.5/weather?q=Tehran&exclude=current&units=metric&appid=${apiKey}`;
+apiKey = "7a088f73941e6a828a29489663c7f3f7";
+let urlDefault = `https://api.openweathermap.org/data/2.5/weather?q=Tehran&units=metric&appid=${apiKey}`;
 axios.get(urlDefault).then(showWeather);
