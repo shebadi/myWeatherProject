@@ -56,8 +56,8 @@ function showWeather(response) {
   city.innerHTML = response.data.name;
   tempWeather.innerHTML = temperature;
   let roundWind = Math.round(response.data.wind.speed);
-  windWeather.innerHTML = `Wind : ${roundWind} km/hm`;
-  humidityWeather.innerHTML = `Humidity : ${response.data.main.humidity} %`;
+  windWeather.innerHTML = `${roundWind}km/hm`;
+  humidityWeather.innerHTML = `${response.data.main.humidity}%`;
   descriptionWeather.innerHTML = response.data.weather[0].description;
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }

@@ -70,6 +70,10 @@ a {
 .weather li:first-letter {
   text-transform: capitalize;
 }
+.weather li strong {
+  color: black;
+  font-weight: 400;
+}
 .weather .temperature {
   font-weight: bold;
   color: rgb(33, 33, 33);
