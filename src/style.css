@@ -5,6 +5,10 @@ body {
     rgba(239, 249, 251, 0.63) 90.1%
   );
 }
+a {
+  text-decoration: none;
+}
+
 .weather {
   font-family: "Cerebri-Sans", Helvetica, Arial, sans-serif;
   background: white;
@@ -51,10 +55,6 @@ body {
   line-height: 48px;
   color: #272142;
 }
-a {
-  text-decoration: none;
-  color: black;
-}
 .weather ul {
   margin: 0 0;
   padding: 0;
@@ -83,6 +83,10 @@ a {
   font-weight: bold;
   font-size: 80px;
   line-height: 1;
+}
+.weather .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
 }
 
 .weather-icon {
