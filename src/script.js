@@ -1,4 +1,5 @@
-function formatDate(date) {
+function formatDate(timeStamp) {
+  let date = new Date(timeStamp);
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -23,13 +24,6 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
-//*function search(event) {
-// event.preventDefault();
-//let cityElement = document.querySelector("#city");
-// let cityInput = document.querySelector("#inlineFormInputName2");
-// cityElement.innerHTML = cityInput.value;
-//}
-
 function convertToFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
@@ -42,16 +36,9 @@ function convertToCelsius(event) {
   temperatureElement.innerHTML = 19;
 }
 
-// Feature #1
-let dateElement = document.querySelector("#date");
-let currentTime = new Date();
-dateElement.innerHTML = formatDate(currentTime);
-
-// Feature #2
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
-// Bonus Feature
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
@@ -65,14 +52,14 @@ function showWeather(response) {
   let temperature = Math.round(response.data.main.temp);
   let windWeather = document.querySelector("#wind");
   let humidityWeather = document.querySelector("#humidity");
+  let dateElement = document.querySelector("#date");
   city.innerHTML = response.data.name;
   tempWeather.innerHTML = temperature;
   let roundWind = Math.round(response.data.wind.speed);
   windWeather.innerHTML = `Wind : ${roundWind} km/hm`;
   humidityWeather.innerHTML = `Humidity : ${response.data.main.humidity} %`;
-  descriptionWeather.innerHTML = response.data.weather[0].main;
-
-  //  descriptionWeather.innerHTML = response.data.weather[0].description;
+  descriptionWeather.innerHTML = response.data.weather[0].description;
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 function searchByCity(event) {
