@@ -23,6 +23,32 @@ function formatDate(timeStamp) {
 
   return `${day} ${hours}:${minutes}`;
 }
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      ` 
+            <div class="col-2">
+              <div class="weather-forecast-date">${day}</div>
+              <img
+                class="weather-icon-min"
+                src="images/icons/2682842_weather_wind_speed_fast_breeze_windy.svg"
+              />
+              <div class="weather-forecats-temperatures">
+                <span class="weather-forecast-temperature-max">12°</span>
+                <span class="weather-forecast-temperature-min">10°</span>
+              </div>
+            </div>
+         `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 function showWeather(response) {
   let cityElement = document.querySelector("#city");
   let descriptionWeather = document.querySelector("#description");
@@ -100,3 +126,4 @@ searchForm.addEventListener("submit", searchByCity);
 apiKey = "7a088f73941e6a828a29489663c7f3f7";
 let urlDefault = `https://api.openweathermap.org/data/2.5/weather?q=Tehran&units=metric&appid=${apiKey}`;
 axios.get(urlDefault).then(showWeather);
+displayForecast();
